@@ -1,18 +1,124 @@
-self.setStyleSheet("""
-    QLineEdit, QTextEdit {
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 14px;
-    }
-    QPushButton {
-        background-color: #4f46e5;
-        color: white;
-        padding: 8px;
-        border-radius: 5px;
-    }
-    QLabel {
-        font-weight: bold;
-        color: #4f46e5;
-    }
-""")
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle">
+   <string>REGISTRYPLM 🕊️</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+
+    <!-- 🔍 Filtros de búsqueda -->
+    <widget class="QLineEdit" name="searchRing">
+     <property name="placeholderText">
+      <string>Buscar por anillo</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="searchColor">
+     <property name="placeholderText">
+      <string>Buscar por color</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="searchBreed">
+     <property name="placeholderText">
+      <string>Buscar por raza</string>
+     </property>
+    </widget>
+
+    <!-- 🕊️ Formulario de paloma -->
+    <widget class="QLineEdit" name="ringInput">
+     <property name="placeholderText">
+      <string>Número de anillo</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="colorInput">
+     <property name="placeholderText">
+      <string>Color</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="breedInput">
+     <property name="placeholderText">
+      <string>Raza</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="notesInput">
+     <property name="placeholderText">
+      <string>Notas</string>
+     </property>
+    </widget>
+
+    <!-- 🎯 Botones de acción -->
+    <layout class="QHBoxLayout" name="actionButtons">
+     <item>
+      <widget class="QPushButton" name="addButton">
+       <property name="text">
+        <string>Añadir / Actualizar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deleteButton">
+       <property name="text">
+        <string>Eliminar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+
+    <!-- 📋 Lista de palomas -->
+    <widget class="QLabel" name="labelList">
+     <property name="text">
+      <string>Palomas registradas:</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="pigeonList"/>
+
+    <!-- 📍 Formulario de captura -->
+    <widget class="QLineEdit" name="captureLocation">
+     <property name="placeholderText">
+      <string>Lugar de captura</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="captureDate">
+     <property name="placeholderText">
+      <string>Fecha (YYYY-MM-DD)</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="captureCount">
+     <property name="placeholderText">
+      <string>Número de veces capturada</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="captureButton">
+     <property name="text">
+      <string>Registrar captura</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelCaptures">
+     <property name="text">
+      <string>Historial de capturas:</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="captureArea">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+
+    <!-- 🧬 Botón para abrir módulo de cría -->
+    <widget class="QPushButton" name="breedingButton">
+     <property name="text">
+      <string>Abrir módulo de cría</string>
+     </property>
+    </widget>
+
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
+
+self.export_button = QPushButton("Exportar ficha como PDF")
+self.export_button.clicked.connect(self.export_pdf)
+layout.addWidget(self.export_button)
